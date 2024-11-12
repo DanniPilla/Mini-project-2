@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import {fetchAnime} from "../AnimeApi"
+import {fetchAnime} from "./AnimeApi"
 
 const AnimeSearch = () =>{
     const [animeData, setAnimeData] = useState([]);
@@ -39,7 +39,7 @@ const AnimeSearch = () =>{
             {loading && <p>Loading...</p>}
             <ul>
                 {animeData.map((anime)=> (
-                    <li key={anime.mal_id}>
+                    <li key={anime._id}>
                     <h3>{anime.title}</h3>
                     <img src={anime.image_url} alt={anime.title}/>
                     <p>{anime.synopsis}</p>
