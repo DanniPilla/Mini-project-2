@@ -17,7 +17,7 @@ const AnimeSearch = () =>{
             if(debouncedSearchTerm){
                 setLoading(true);
                 try{
-                    const data = await fetchAnime(searchTerm);
+                    const data = await fetchAnime(debouncedSearchTerm);
                     setAnimeData(data.results || []);
                 } catch (error){
                     console.log("Error fetching request", error)
