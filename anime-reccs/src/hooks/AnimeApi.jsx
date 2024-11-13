@@ -19,8 +19,10 @@ export const fetchAnime = async (query) => {
       throw new Error(`Error: ${response.statusText}`);
     }
 
-    const data = await response.json();
+    const data = await response.json(); 
+    console.log("Full Response Data:", data);
     return data;
+   
   } catch (error) {
     console.error('Error fetching anime:', error);
     throw error;

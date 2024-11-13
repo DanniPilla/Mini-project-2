@@ -1,17 +1,13 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import AnimeSearch from './hooks/AnimeSearch'
+import AnimeSearchExtended from './components/AnimeSearchExtended'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <div>
-        <AnimeSearch/>
+        <AnimeSearchExtended/>
       </div>
      
     </>

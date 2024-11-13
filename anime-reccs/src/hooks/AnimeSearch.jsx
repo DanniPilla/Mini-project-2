@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react"
 import {fetchAnime} from "./AnimeApi"
 
-const AnimeSearch = () =>{
+const useAnimeSearch = () =>{
     const [animeData, setAnimeData] = useState([]);
     const [searchTerm, setSearchTerm]=useState("");
     const [loading, setLoading]= useState(false);
@@ -18,36 +18,19 @@ const AnimeSearch = () =>{
                 setLoading(true);
                 try{
                     const data = await fetchAnime(debouncedSearchTerm);
-                    setAnimeData(data.results || []);
+                    setAnimeData(data.data || []);
                 } catch (error){
                     console.log("Error fetching request", error)
                 }
                 setLoading(false);
+            } else {
+                setAnimeData([]);
             }
         }
         getAnime();
     },[debouncedSearchTerm]);
 
-    return (
-        <div>
-            <input
-            type="text"
-            value={searchTerm}
-            onChange={(e)=> setSearchTerm(e.target.value)}
-            placeholder="Search for an Anime"
-            />
-            {loading && <p>Loading...</p>}
-            <ul>
-                {animeData.map((anime)=> (
-                    <li key={anime._id}>
-                    <h3>{anime.title}</h3>
-                    <img src={anime.image_url} alt={anime.title}/>
-                    <p>{anime.synopsis}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    )
+    return {animeData, searchTerm, setSearchTerm, loading};
 }
 
-export default AnimeSearch 
+export default useAnimeSearch 
