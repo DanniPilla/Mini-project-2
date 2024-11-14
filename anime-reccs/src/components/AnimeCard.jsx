@@ -12,7 +12,8 @@ const AnimeCard = ({anime}) =>{
                 <p className="text-sm text-gray-500 mb-2">Episodes: {anime.episodes}</p>
                 <p className="text-sm text-gray-500 mb-2">Status: {anime.status}</p>
                 <p className="text-sm">
-                    <strong>Genres:</strong> {anime.genres.join(', ')}
+                    <strong>Genres: </strong> 
+                    {anime.genres && anime.genres.length>0? anime.genres.join(', '): "Unknown"}
                 </p>
                 <p className="text-gray-700 mt-2 line-clamp-3">
                     {anime.synopsis}
