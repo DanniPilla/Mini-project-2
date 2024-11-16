@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import {fetchAnime} from "./AnimeApi"
+import {fetchAnime} from "./fetchAnime"
 
 const useAnimeSearch = () =>{
     const [animeData, setAnimeData] = useState([]);

@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import AnimeSearchExtended from './components/AnimeSearchExtended'
+import {AnimeSearch} from './components/AnimeSearch'
 
 
 function App() {
   return (
     <>
       <div>
-        <AnimeSearchExtended/>
+        <AnimeSearch/>
       </div>
      
     </>
